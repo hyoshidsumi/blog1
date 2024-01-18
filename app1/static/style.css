@@ -1,0 +1,284 @@
+html,
+body {
+  height: 100%;
+  color: #444;
+}
+
+a {
+  text-decoration: none;
+  color: #444;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.box_section {
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.box_section h1,
+.box_section .date {
+  padding: 4px 8px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  color: #fff;
+}
+.box_section .date {
+  font-weight: 300;
+}
+.box_section > * {
+  width: 100%;
+}
+
+header {
+  line-height: 40px;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+header a {
+  color: #fff;
+}
+header a:hover {
+  color: #ddd;
+}
+
+#pagenation {
+  position: absolute;
+  bottom: 8px;
+  color: #aaa;
+}
+#pagenation a {
+  color: #ddd;
+}
+
+footer {
+  text-align: center;
+  background-color: #000;
+  color: #ddd;
+  font-size: 10px;
+  line-height: 20px;
+}
+
+.error_message {
+  font-size: 12px;
+  color: #b44;
+  text-align: left;
+}
+
+#signup {
+  height: calc(100vh - 136px);
+  color: #fff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(./images/rpg_signup.jpg);
+}
+#signup form {
+  max-width: 320px;
+}
+
+#cover {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(./images/rpg_signin.jpg);
+  color: #fff;
+}
+#cover h1 {
+  padding-top: 160px;
+}
+#cover form {
+  max-width: 320px;
+}
+
+#home {
+  width: 100%;
+  min-height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-image: url(./images/rpg_field1.jpg);
+  position: relative;
+}
+#home.box_section {
+  padding: 16px calc(12.5vw - 8px);
+}
+@media screen and (min-width: 768px) {
+  #home.box_section {
+    padding: 16px calc(12.5vw - 16px);
+  }
+}
+#home .list {
+  display: flex;
+  flex-wrap: wrap;
+  -moz-column-gap: 8px;
+       column-gap: 8px;
+  row-gap: 8px;
+}
+@media screen and (min-width: 768px) {
+  #home .list {
+    -moz-column-gap: 16px;
+         column-gap: 16px;
+    row-gap: 16px;
+  }
+}
+#home .box a {
+  padding: 4px 8px;
+  width: 25vw;
+  height: 25vw;
+  overflow: hidden;
+  border-radius: 8px 16px;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  #home .box a {
+    width: 200px;
+    height: 200px;
+    padding: 16px;
+  }
+}
+#home .box a * {
+  width: 100%;
+}
+#home .box a img {
+  width: 50%;
+  border-radius: 8px;
+}
+#home .box a .title {
+  font-size: 16px;
+  text-align: left;
+  overflow-wrap: break-word;
+}
+#home .box a .author {
+  font-size: 10px;
+  text-align: left;
+}
+@media screen and (min-width: 768px) {
+  #home .box a .title {
+    font-size: 20px;
+  }
+  #home .box a .author {
+    font-size: 12px;
+  }
+}
+#home .box a:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+}
+
+#detail,
+#post,
+#update {
+  padding: 8px 0 40px;
+  min-height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-image: url(./images/rpg_desk.jpg);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#detail .box,
+#post .box,
+#update .box {
+  width: calc(100% - 32px);
+}
+#detail .box .control,
+#post .box .control,
+#update .box .control {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+#detail .box h1,
+#post .box h1,
+#update .box h1 {
+  font-size: 20px;
+}
+#detail .box label,
+#post .box label,
+#update .box label {
+  width: 100px;
+  font-weight: 700;
+}
+#detail .box input,
+#detail .box textarea,
+#post .box input,
+#post .box textarea,
+#update .box input,
+#update .box textarea {
+  width: calc(100% - 100px);
+  border: solid 2px #4f300f;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #333;
+  padding: 4px 8px;
+}
+#detail .box input#title,
+#post .box input#title,
+#update .box input#title {
+  font-size: 18px;
+  font-weight: 500;
+  overflow-wrap: break-word;
+}
+#detail .box input#image,
+#post .box input#image,
+#update .box input#image {
+  color: #333;
+  font-size: 12px;
+}
+#detail .box input#submit,
+#post .box input#submit,
+#update .box input#submit {
+  width: 120px;
+  padding: 8px 16px;
+  background-color: #333;
+  color: #fff;
+  border: 0;
+}
+#detail .box p,
+#post .box p,
+#update .box p {
+  display: flex;
+  align-items: flex-start;
+}
+#detail .box p label,
+#post .box p label,
+#update .box p label {
+  width: 100px;
+}
+#detail .box p#content,
+#post .box p#content,
+#update .box p#content {
+  color: #333;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.8);
+  min-height: 200px;
+}
+#detail .box .date,
+#post .box .date,
+#update .box .date {
+  display: block;
+  text-align: right;
+  margin-bottom: 28px;
+}
+#detail .box img,
+#post .box img,
+#update .box img {
+  max-width: 100%;
+  display: block;
+}/*# sourceMappingURL=style.css.map */

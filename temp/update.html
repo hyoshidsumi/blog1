@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<div class="ps-4">ZUMI</div>
+<div class="pe-4"><a href="{% url 'signout' %}" class="btn btn-dark">signout</a></div>
+{% endblock %}
+
+{% block main %}
+<section id="update" class="box-section">
+
+    <form class="box" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="control">
+            <a></a>
+            <a href="{% url 'detail' object.pk %}" class="btn btn-secondary">cancel</a>
+        </div>
+        <p class="mt-5">
+            <label for="title">Title</label>
+            <input id="title" name="title" type="text" value="{{object.title}}" class="h3 mb-3 font-weight-normal">
+        </p>
+        <!-- <p>{{object.author}}</p> -->
+        <p>
+            <label for="content">Content</label>
+            <textarea id="content" name="content" rows="10">{{object.content}}</textarea>
+        </p>
+        <label for="image">Image</label>
+        {% if object.blogImage %}
+        <div class="d-flex justify-content-center"><img src="{{object.blogImage.url}}"></div>
+        {% endif %}
+        <div class="w-100 d-flex justify-content-center">
+            <input type="file" id="image" name="image" accept=".png, .jpg, .jpeg, .gif" class="mt-2">
+        </div>
+        <div class="w-100 d-flex justify-content-center">
+            <input type="submit" value="update" id="submit" class="btn btn-primary mt-5">
+        </div>
+    </form>
+</section>
+{% endblock %}
+
+{% block footer %}
+<p class="pt-3 pb-4">zumi &copy; 2024</p>
+{% endblock %}

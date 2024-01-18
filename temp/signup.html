@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block header %}
+signup menu
+{% endblock %}
+
+{% block main %}
+<section id="signup" class="text-center">
+    <h1 class="h3 mb-3 font-weight-normal pt-5 pb-4">Welcome</h1>
+    <form class="form-signin container" method="POST">
+        {% csrf_token %}
+        {% if error is not None%}
+        <div class="alert alert-warning error_message">
+            {% for i in error %}
+                <span>{{i}}</span><br>
+            {% endfor%}
+        </div>
+        {% endif %}
+        <label for="inputName" class="sr-only">User name</label>
+        <input id="inputName" class="form-control" placeholder="User name" name="username" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+        <button class="btn btn-lg btn-primary btn-block mt-5" type="submit">Sign up</button>
+        <p class="mt-5 mb-3 text-muted">zumi &copy; 2024</p>
+    </form>
+</section>
+{% endblock %}
+
+{% block footer %}
+footer_a
+{% endblock %}

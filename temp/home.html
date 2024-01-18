@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<div class="ps-4">ZUMI</div>
+<div class="pe-4" style="color:white">
+    <span class="me-2">{{user.username}}</span>
+    <a href="{% url 'signout' %}" class="btn btn-dark">signout</a>
+</div>
+{% endblock %}
+
+{% block main %}
+{% if user.is_authenticated %}
+<section id="home" class="box_section text-center">
+    <div class="box mt-3">
+        <a href="{% url 'create'%}">
+            <span>
+                New
+            </span>
+            <img src="{% static 'images/rpg_char1.png' %}" width="200px">
+        </a>
+    </div>
+    
+    <h1 class="h3 mt-4 mb-3 font-weight-normal text-white bg-transparent">Home</h1>
+
+    <ul class="list">
+        {% for i in page_list %}
+        <li class="box">
+            <a href="{% url 'detail' i.pk %}">
+                <p class="title mb-0">
+                    {{i.title}}
+                </p>
+                <p class="author text-right mb-2">
+                    {{i.author}}
+                </p>
+                <!-- <img src="{% static 'images/rpg_char1.png' %}" width="200px"> -->
+                {% if i.blogImage %}
+                <img src="{{i.blogImage.url}}">
+                {% endif %}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    {% include './components/pagination.html' %}
+
+</section>
+{% endif %}
+{% endblock %}
+
+{% block footer %}
+<p class="pt-3 pb-4">zumi &copy; 2024</p>
+{% endblock %}

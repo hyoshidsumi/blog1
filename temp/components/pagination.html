@@ -1,0 +1,30 @@
+{% if page_list.has_other_pages %}
+<div id="pagenation">
+    <!-- <ul class="d-flex justify-content-center">
+        {% if page_list.has_previous %}
+        <li class="px-2"><a href="?page={{page_list.previous_page_number}}" class="text-decoration-underline">previous</a></li>
+        {% else %}
+        <li class="px-2">previous</li>
+        {% endif %}
+
+        <li>{{page_list.number}}</li>
+
+        {% if page_list.has_next %}
+        <li class="px-2"><a href="?page={{page_list.next_page_number}}" class="text-decoration-underline">next</a></li>
+        {% else %}
+        <li class="px-2">next</li>
+        {% endif %}
+    </ul> -->
+    <ul class="d-flex justify-content-center">
+        {% for i in range_pages %}
+        <li class="px-2">
+            {% if i != page_list.number %}
+            <a href="?page={{i}}" class="text-decoration-underline">{{i}}</a>
+            {% else %}
+            {{i}}
+            {% endif %}
+        </li> 
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}

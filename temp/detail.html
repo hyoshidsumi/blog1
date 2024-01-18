@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<div class="ps-4">ZUMI</div>
+<div class="pe-4"><a href="{% url 'signout' %}" class="btn btn-dark">signout</a></div>
+{% endblock %}
+
+{% block main %}
+<section id="detail" class="box_section">
+
+    <div class="box">
+        {% if user == object.user %}
+        <div class="control">
+            <a href="{% url 'home' %}" class="btn btn-secondary">back to home</a>
+            <span>
+                <a href="{% url 'update' object.pk %}" class="btn btn-dark">update</a>
+                <a href="{% url 'delete' object.pk %}" class="btn btn-dark">delete</a>
+            </span>
+        </div>
+        {% endif %}
+
+        <h1 id="title" class="mt-5 mb-3 font-weight-normal text-center">{{object.title}}</h1>
+
+        {% if object.blogImage %}
+        <div class="d-flex justify-content-center mb-3">
+        <img src="{{object.blogImage.url}}">
+        </div>
+        {% endif %}
+
+        <p id="content">{{object.content}}</p>
+
+        <div class="date">
+            last updated: {{object.udate|date:"Y.m.j H:i"}}
+            <br>
+            edited by : {{object.author}}
+        </div>
+
+    </div>
+</section>
+{% endblock %}
+
+{% block footer %}
+footer_a
+<a href="{% url 'create' %}">a1</a>
+{% endblock %}

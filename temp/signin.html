@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="ps-4">ZUMI</div>
+<div class="pe-4"><a href="{% url 'signup' %}" class="btn btn-dark">signup</a></div>
+{% endblock %}
+
+{% block main %}
+<section id="cover" class="text-center">
+    <h1 class="h3 mb-3 font-weight-normal">Welcome</h1>
+    <form method="POST" class="form-signin container">
+        {% csrf_token %}
+        <label for="inputName" class="sr-only">User name</label>
+        <input type="text" id="inputName" class="form-control" placeholder="User name" name="username" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+        <!-- <div class="checkbox mb-3">
+            <label><input type="checkbox" value="remember-me"> Remember me</label>
+        </div> -->
+        <button class="btn btn-lg btn-dark btn-block mt-5" type="submit">Sign in</button>
+    </form>
+</section>
+{% endblock %}
+
+{% block footer %}
+<p class="pt-3 pb-4">zumi &copy; 2024</p>
+{% endblock %}

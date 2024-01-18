@@ -1,0 +1,311 @@
+// breakpointの設定
+$mq-breakpoints: (
+    xl: 1440px,
+    lg2: 1280px,
+    lg: 1024px,
+    md: 768px,
+    sm: 576px,
+    xs: 414px) !default;
+
+// Media Queryの設定
+@mixin mq($breakpoint: md, $rule: min, $subtraction: false) {
+    $breakpoint: map_get($mq-breakpoints, $breakpoint
+    );
+
+@if $rule==max and $subtraction {
+    $breakpoint: $breakpoint - 0.0625;
+}
+
+@media screen and (#{$rule}-width: $breakpoint) {
+    @content;
+}
+}
+
+html,
+body {
+    height: 100%;
+    color: #444;
+}
+
+a {
+    text-decoration: none;
+    color: #444;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.box_section {
+    padding: 8px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1,
+    .date {
+        padding: 4px 8px;
+        background-color: rgba(0, 0, 0, .7);
+        border-radius: 8px;
+        color: #fff;
+    }
+
+    .date {
+        font-weight: 300;
+    }
+
+    &>* {
+        width: 100%;
+    }
+}
+
+header {
+    line-height: 40px;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+
+    a {
+        color: #fff;
+
+        &:hover {
+            color: #ddd;
+        }
+    }
+}
+
+#pagenation {
+    position: absolute;
+    bottom: 8px;
+    color: #aaa;
+
+    a {
+        color: #ddd;
+    }
+}
+
+footer {
+    text-align: center;
+    background-color: #000;
+    color: #ddd;
+    font-size: 10px;
+    line-height: 20px;
+}
+
+.error_message {
+    font-size: 12px;
+    color: #b44;
+    text-align: left;
+}
+
+#signup {
+    height: calc(100vh - 136px);
+    color: #fff;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(./images/rpg_signup.jpg);
+
+    form {
+        max-width: 320px;
+    }
+
+}
+
+#cover {
+    // height: calc(100vh - 136px);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(./images/rpg_signin.jpg);
+    color: #fff;
+
+    h1 {
+        padding-top: 160px;
+    }
+
+    form {
+        max-width: 320px;
+    }
+}
+
+#home {
+    width: 100%;
+    // height: calc(100vh - 136px);
+    min-height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-image: url(./images/rpg_field1.jpg);
+    position: relative;
+
+    &.box_section {
+        padding: 16px calc(12.5vw - 8px); //3列表示
+
+        @include mq(md) {
+            padding: 16px calc(12.5vw - 16px); //4列表示
+        }
+    }
+
+    .list {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 8px;
+        row-gap: 8px;
+
+        @include mq(md) {
+            column-gap: 16px;
+            row-gap: 16px;
+        }
+    }
+
+    .box a {
+        padding: 4px 8px;
+        width: 25vw; //3列表示
+        height: 25vw;
+
+        @include mq(md) {
+            width: 200px;
+            height: 200px;
+            padding: 16px;
+        }
+
+        overflow: hidden;
+        border-radius: 8px 16px;
+        background-color: rgba(255, 255, 255, .7);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        * {
+            width: 100%;
+        }
+
+        img {
+            width: 50%;
+            border-radius: 8px;
+        }
+
+        .title {
+            font-size: 16px;
+            text-align: left;
+            overflow-wrap: break-word;
+        }
+
+        .author {
+            font-size: 10px;
+            text-align: left;
+        }
+
+        @include mq(md) {
+            .title {
+                font-size: 20px;
+            }
+
+            .author {
+                font-size: 12px;
+            }
+        }
+
+        &:hover {
+            background-color: rgba(255, 255, 255, .8);
+            cursor: pointer;
+        }
+    }
+}
+
+#detail,
+#post,
+#update {
+    padding: 8px 0 40px;
+    // height: calc(100vh - 136px);
+    min-height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-image: url(./images/rpg_desk.jpg);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .box {
+        width: calc(100% - 32px);
+
+        .control {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        h1 {
+            font-size: 20px;
+        }
+
+        label {
+            width: 100px;
+            font-weight: 700;
+        }
+
+        input,
+        textarea {
+            width: calc(100% - 100px);
+            border: solid 2px #4f300f;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, .7);
+            color: #333;
+            padding: 4px 8px;
+        }
+
+        input#title {
+            font-size: 18px;
+            font-weight: 500;
+            overflow-wrap: break-word;
+        }
+
+        input#image {
+            color: #333;
+            font-size: 12px;
+        }
+
+        input#submit {
+            width: 120px;
+            padding: 8px 16px;
+            background-color: #333;
+            color: #fff;
+            border: 0;
+        }
+
+        p {
+            display: flex;
+            align-items: flex-start;
+
+            label {
+                width: 100px;
+            }
+
+            &#content {
+                color: #333;
+                padding: 4px 8px;
+                border-radius: 4px;
+                background-color: rgba(255, 255, 255, .8);
+                min-height: 200px;
+            }
+        }
+
+        .date {
+            display: block;
+            text-align: right;
+            margin-bottom: 28px;
+        }
+
+        img {
+            max-width: calc(100%);
+            display: block;
+        }
+    }
+}
