@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<div class="ps-4">ZUMI</div>
+<div class="pe-4"><a href="{% url 'signout' %}" class="btn btn-dark">signout</a></div>
+{% endblock %}
+
+{% block main %}
+<section id="aaa" class="text-center">
+    <h1 class="h3 mb-3 font-weight-normal">note</h1>
+
+</section>
+{% endblock %}
+
+{% block footer %}
+zumi
+{% endblock %}

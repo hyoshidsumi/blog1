@@ -79,8 +79,16 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    'mysql': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mysql1',
+        'USER': 'root',
+        'PASSWORD': '' ,
     }
 }
+
+DATABASE_ROUTERS = [BASE_DIR / 'dbrouter.dbRouter1']
 
 
 # Password validation
@@ -117,11 +125,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static1/'
+STATIC_URL = 'static/'
 
-STATIC_ROOT = BASE_DIR/'static1/'
+STATIC_ROOT = BASE_DIR/'static/'
 
-STATICFILE_DIRS = [str(BASE_DIR/'app1/static1')]
+STATICFILE_DIRS = [str(BASE_DIR/'app1/static')]
 
 MEDIA_URL = 'media/'
 
